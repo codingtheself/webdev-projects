@@ -2,6 +2,7 @@ import express, { urlencoded } from "express";
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import connectDB from "./utils/db.js";
 
 dotenv.config({});
 
@@ -29,5 +30,7 @@ app.use(cors(corsOptions));
 
 
 app.listen(PORT, () => {
+    connectDB();
     console.log(`Server listening at localhost:${PORT}`);
 });
+
